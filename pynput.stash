@@ -1,0 +1,1006 @@
+# <#>pynput<> SpeedSheet
+<b>Find what you need, faster.<>
+
+A library to control and monitor keyboard and mouse actions.
+
+
+# Online Links
+
+
+### pynput Documents
+<l>https://pynput.readthedocs.io/en/latest/<>
+
+
+### Github
+<l>https://github.com/moses-palmer/pynput<>
+
+
+### pynput Library on PyPi
+<l>https://pypi.org/project/pynput/<>
+
+
+
+# Library
+
+
+## Install Library - pip
+
+<cb>pip install pynput<>
+@
+@ command, commandline
+
+
+
+## Install Library - pip requirements.txt
+
+requirements.txt:
+
+<cb>pynput<>
+
+Command:
+
+<cb>pip install -r requiremets.txt<>
+@
+@ command, commandline
+
+
+
+## Program - Import
+
+<cb>from pynput import mouse, keyboard<>
+
+
+
+
+# Keyboard
+
+
+### Keyboard - Send Key Character
+
+<cb><v>keyboard<>.tap(<v>character<>)<>
+
+Usage:
+
+<cb>from pynput.keyboard import Controller
+<v>keyboard<> = Controller()
+
+<v>keyboard<>.tap(<v>character<>)<>
+
+
+Sends a single character as a keystroke.
+
+Tap is basically a key press() followed by a key release().
+
+
+Example:
+
+<cb>from pynput.keyboard import Controller
+from pynput.keyboard import Controller
+
+<v>keyboard<> = Controller()
+
+<v>keyboard<>.tap('a')
+
+<#># Types 'a'.<><>
+
+<cb>from pynput.keyboard import Controller
+<v>keyboard<> = Controller()
+
+<v>keyboard<>.tap(Key.up)
+
+<#># Moves the cursor up.<><>
+@
+@ controller.tap(), keyboard.tap(), .tap()
+@ type text, keystroke
+
+
+
+### Keyboard - Send Key Characters
+
+<cb><v>keyboard<>.type(<v>characters<>)<>
+
+Usage:
+
+<cb>from pynput.keyboard import Controller
+<v>keyboard<> = Controller()
+
+<v>keyboard<>.type(<v>characters<>)<>
+
+
+Sends a string of characters as keystrokes.
+
+
+Example:
+
+<cb>from pynput.keyboard import Controller
+<v>keyboard<> = Controller()
+
+<v>keyboard<>.tap('abc')
+
+<#># Types 'abc'.<><>
+@
+@ controller.type(), keyboard.type(), .type()
+@ type text, keystrokes
+
+
+
+### Keyboard - Send Key Press
+
+<cb><v>keyboard<>.press(<v>character<>)<>
+
+Usage:
+
+<cb>from pynput.keyboard import Controller
+<v>keyboard<> = Controller()
+
+<v>keyboard<>.press(<v>character<>)<>
+
+
+Sends a key press event (key down).
+
+Does not send the key up event.
+@
+@ key down
+
+
+
+### Keyboard - Send Key Release
+
+<cb><v>keyboard<>.release(<v>character<>)<>
+
+Usage:
+
+<cb>from pynput.keyboard import Controller
+<v>keyboard<> = Controller()
+
+<v>keyboard<>.release(<v>character<>)<>
+
+
+Sends a key release event (key up).
+@
+@ key up
+
+
+
+### Keyboard - Send Modifier Key
+
+<cb>with <v>keyboard<>.pressed(<v>character<>):<>
+
+Usage:
+
+<cb>from pynput.keyboard import Controller
+<v>keyboard<> = Controller()
+
+with <v>keyboard<>.pressed(<v>character<>):
+	<v>...<><>
+
+
+Sends a modifier key.
+
+Wrap actual key with modifier key <c>pressed()<> call.
+Modifier keys can be nested.
+
+
+Example:
+
+Select All (Mac):
+
+<cb>from pynput.keyboard import Controller
+from pynput.keyboard import Key
+
+<v>keyboard<> = Controller()
+
+with <v>keyboard<>.pressed(Key.cmd):
+	<v>keyboard<>.tap('a')
+
+<#># Selects all content.<><>
+
+Select All (Windows):
+
+<cb>from pynput.keyboard import Controller
+from pynput.keyboard import Key
+
+<v>keyboard<> = Controller()
+
+with <v>keyboard<>.pressed(Key.alt):
+	<v>keyboard<>.tap('a')
+
+<#># Selects all content.<><>
+@
+@ alt, altgr, ctrl, cmd, shift, 
+@ modifier, modified, control, command, nested
+
+
+# Key Reference
+@
+@ keys
+
+
+## Keys - Basics
+
+General:
+
+<in><table><col>Backspace		<><col><c>Key.backspace<><>
+<col>Caps Lock<><col><c>Key.caps_lock<><>
+<col>Delete<><col><c>Key.delete<><>
+<col>Enter / Return<><col><c>Key.enter<><>
+<col>Escape<><col><c>Key.esc<><>
+<col>Insert<><col><c>Key.insert<><>
+<col>NumLock<><col><c>Key.num_lock<><>
+<col>Page Down<><col><c>Key.page_down<><>
+<col>Page Up<><col><c>Key.page_up<><>
+<col>The Pause/Break<><col><c>Key.pause<><>
+<col>PrintScreen<><col><c>Key.print_screen<><>
+<col>ScrollLock<><col><c>Key.scroll_lock<><>
+<col>Space<><col><c>Key.space<><>
+<col>Tab<><col><c>Key.tab<><><><>
+
+Cursor / Arrows:
+
+<in><table><col>Arrow Down		<><col><c>Key.down<><>
+<col>Arrow Left<><col><c>Key.left<><>
+<col>Arrow Up<><col><c>Key.up<><>
+<col>Arrow Right<><col><c>Key.right<><>
+<col> <>
+<col>Home<><col><c>Key.home<><>
+<col>End<><col><c>Key.end<><><><>
+
+Modifiers:
+
+<in><table><col>Shift				<><col><c>Key.shift<><>
+<col>Shift Left<><col><c>Key.shift_l<><>
+<col>Shift Right<><col><c>Key.shift_r<><>
+<col> <>
+<col>Alt<><col><c>Key.alt<><>
+<col>Alt (Left)<><col><c>Key.alt_l<><>
+<col>Alt (Right)<><col><c>Key.alt_r<><>
+<col>AltGr / Alt Graph<><col><c>Key.alt_gr<><>
+<col> <>
+<col>Command<><col><c>Key.cmd<><>
+<col>Command (Left)<><col><c>Key.cmd_l<><>
+<col>Command (Right)<><col><c>Key.cmd_r<><>
+<col> <>
+<col>Ctrl<><col><c>Key.ctrl<><>
+<col>Ctrl (Left)<><col><c>Key.ctrl_l<><>
+<col>Ctrl (Right)<><col><c>Key.ctrl_r<><>
+<col> <>
+<col>Menu<><col><c>Key.menu<><><><>
+
+Media:
+
+<in><table><col>Next Track		<><col><c>Key.media_next<><>
+<col>Play / Pause<><col><c>Key.media_play_pause<><>
+<col>Previous Track<><col><c>Key.media_previous<><>
+<col> <>
+<col>Volume Down<><col><c>Key.media_volume_down<><>
+<col>Volume Mute<><col><c>Key.media_volume_mute<><>
+<col>Volume Up<><col><c>Key.media_volume_up<><><><>
+
+
+
+## Keys - Details
+
+
+### Key - alt
+
+<cb>= Key.alt<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.alt<>
+
+Generic Alt Key (Modifier)
+@
+@ Key.alt, alt
+@ modifier, modify
+
+
+
+### Key - alt_gr
+
+<cb>= Key.alt_gr<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.alt_gr<>
+
+AltGr / Alt Graph Key (Modifier)
+@
+@ Key.alt_gr, alt_gr
+@ general modifier, alt graph, modify
+
+
+
+### Key - alt_l
+
+<cb>= Key.alt_l<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.alt_l<>
+
+Left Alt Key (Modifier)
+@
+@ Key.alt_l, alt_l
+@ left modifier, modify
+
+
+
+### Key - alt_r
+
+<cb>= Key.alt_r<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.alt_r<>
+
+Right Alt Key (Modifier)
+@
+@ Key.alt_r, alt_r,
+@ Rigth modifier, modify
+
+
+
+### Key - backspace
+
+<cb>= Key.backspace<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.backspace<>
+
+Backspace Key
+@
+@ Key.backspace, backspace
+@ delete
+
+
+
+### Key - caps_lock
+
+<cb>= Key.caps_lock<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.caps_lock<>
+
+Caps Lock Key
+@
+@ Key.caps_lock, caps_lock
+@ caps lock, capslock
+
+
+
+
+### Key - cmd
+
+<cb>= Key.cmd<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.cmd<>
+
+Generic Command Button
+
+Mac - Command Key (Modifier)
+Windows - Super / Windows Key
+@
+@ Key.cmd, cmd
+@ Command, Super, Modiifer, modify
+
+
+
+### Key - cmd_l
+
+<cb>= Key.cmd_l<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.cmd_l<>
+
+Left Command Button
+
+Mac - Left Command Key (Modifier)
+Windows - Left Super / Windows Key
+@
+@ Key.cmd_l, cmd_l
+@ Command, left, Modifier, modify
+
+
+
+### Key - cmd_r
+
+<cb>= Key.cmd_r<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.cmd_r<>
+
+Right Command Button
+
+Mac - Right Command Key (Modifier)
+Windows - Right Super / Windows Key
+@
+@ Key.cmd_r, cmd_r
+@ Command, right, Modifier, modify
+
+
+
+### Key - ctrl
+
+<cb>= Key.ctrl<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.ctrl<>
+
+Generic Ctrl Key (Modifier)
+@
+@ Key.ctrl, ctrl
+@ control, modifier, modify
+
+
+
+### Key - ctrl_l
+
+<cb>= Key.ctrl_l<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.ctrl_l<>
+
+Left Ctrl Key (Modifier)
+@
+@ Key.ctrl_l, ctrl_l
+@ left control, modifier, modify
+
+
+
+### Key - ctrl_r
+
+<cb>= Key.ctrl_r<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.ctrl_r<>
+
+Right Ctrl Key (Modifier)
+@
+@ Key.ctrl_r, ctrl_r
+@ right control, modifier, modify
+
+
+
+### Key - delete
+
+<cb>= Key.delete<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.delete<>
+
+Delete Key
+@
+@ Key.delete, delete
+
+
+
+### Key - down
+
+<cb>= Key.down<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.down<>
+
+Down Arrow Key
+@
+@ Key.down, down
+@ arrow, direction, cursor, move
+
+
+
+### Key - end
+
+<cb>= Key.end<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.end<>
+
+End Key
+@
+@ Key.end, end
+@ move, direction, cursor
+
+
+
+### Key - enter
+
+<cb>= Key.enter<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.enter<>
+
+Enter / Return Key
+@
+@ Key.enter, enter, return, newline
+
+
+
+### Key - esc
+
+<cb>= Key.esc<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.esc<>
+
+Escape Key
+@
+@ Key.esc, esc
+@ escape
+
+
+
+### Key - f1 .. f20
+
+<cb>= Key.f1
+<v>...<>
+Key.f20<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.f1
+<v>...<>
+= Key.f20<>
+
+Function Keys
+Keys F1 to F20
+@
+@ f1, f2, f3, f4, f5, f6, f7, f8, f9, f10
+@ f11, f12, f13, f14, f15, f16, f17, f18, f19, f20
+@ Key.f1, Key.f2, Key.f3, Key.f4, Key.f5, Key.f6, Key.f7, Key.f8, Key.f9, Key.f10
+@ Key.f11, Key.f12, Key.f13, Key.f14, Key.f15, Key.f16, Key.f17, Key.f18, Key.f19, Key.f20
+@ function
+
+
+
+### Key - home
+
+<cb>= Key.home<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.home<>
+
+Home Key
+@
+@ Key.home, home
+@ direction, move, cursor
+
+
+
+### Key - insert
+
+<cb>= Key.insert<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.insert<>
+
+Insert Key
+
+May not be supported on all platforms.
+@
+@ Key.insert, insert
+
+
+
+### Key - left
+
+<cb>= Key.left<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.left<>
+
+Left Arrow Key
+@
+@ Key.left, left
+@ arrow, direction, cursor, move
+
+
+
+### Key - media_next
+
+<cb>= Key.media_next<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.media_next<>
+
+Next Track Button
+@
+@ Key.media_next, media_next
+@ media playback controls, next track button
+
+
+
+### Key - media_play_pause
+
+<cb>= Key.media_play_pause<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.media_play_pause<>
+
+Play / Pause Button
+
+Toggles between both.
+@
+@ Key.media_play_pause, media_play_pause
+@ media playback controls, play pause track button, toggle
+
+
+
+### Key - media_previous
+
+<cb>= Key.media_previous<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.media_previous<>
+
+Previous Track Button
+@
+@ Key.media_previous, media_previous
+@ media playback controls, previous track button
+
+
+
+### Key - media_volume_down
+
+<cb>= Key.media_volume_down<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.media_volume_down<>
+
+Volume Down Button
+@
+@ Key.media_volume_down, media_volume_down
+@ Volume Down Button, audio
+
+
+
+### Key - media_volume_mute
+
+<cb>= Key.media_volume_mute<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.media_volume_mute<>
+
+Mute Button
+@
+@ Key.media_volume_mute, media_volume_mute
+@ Volume Mute Button, audio
+
+
+
+### Key - media_volume_up
+
+<cb>= Key.media_volume_up<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.media_volume_up<>
+
+Volume Up Button
+@
+@ Key.media_volume_up, media_volume_up
+@ Volume Up Button, audio
+
+
+
+### Key - menu
+
+<cb>= Key.menu<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.menu<>
+
+Menu Key
+
+May not be supported on all platforms.
+@
+@ Key.menu, menu
+
+
+
+### Key - num_lock
+
+<cb>= Key.num_lock<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.num_lock<>
+
+NumLock Key
+
+May not be supported on all platforms.
+@
+@ Key.num_lock, num_lock
+@ number lock
+
+
+
+### Key - page_down
+
+<cb>= Key.page_down<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.page_down<>
+
+PageDown Key
+@
+@ Key.page_down, page_down
+@ page down, direction, cursor, move
+
+
+
+### Key - page_up
+
+<cb>= Key.page_up<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.page_up<>
+
+PageUp Key
+@
+@ Key.page_up, page_up
+@ page up, direction, cursor, move
+
+
+
+### Key - pause
+
+<cb>= Key.pause<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.pause<>
+
+The Pause/Break Key
+
+May not be supported on all platforms.
+@
+@ Key.pause, pause
+
+
+
+### Key - print_screen
+
+<cb>= Key.print_screen<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.print_screen<>
+
+PrintScreen Key
+
+May not be supported on all platforms.
+@
+@ Key.print_screen, print_screen
+@ print screen, screen shot
+
+
+
+### Key - right
+
+<cb>= Key.right<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.right<>
+
+Right Arrow Key
+@
+@ Key.right, right
+@ arrow, direction, cursor, move
+
+
+
+### Key - scroll_lock
+
+<cb>= Key.scroll_lock<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.scroll_lock<>
+
+ScrollLock Key
+
+May not be supported on all platforms.
+@
+@ Key.scroll_lock, scroll_lock
+@ scroll lock
+
+
+
+### Key - shift
+
+<cb>= Key.shift<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.shift<>
+
+Generic Shift Key (Modifier)
+@
+@ Key.shift, shift
+@ modifier, modify, case
+
+
+
+### Key - shift_l
+
+<cb>= Key.shift_l<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.shift_l<>
+
+Left Shift Key (Modifier)
+@
+@ Key.shift_l, shift_l
+@ left, modifier, modify, shift, case
+
+
+
+### Key - shift_r
+
+<cb>= Key.shift_r<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.shift_r<>
+
+Right Shift Key (Modifier)
+@
+@ Key.shift_r, shift_r
+@ right, modifier, modify, shift, case
+
+
+
+### Key - space
+
+<cb>= Key.space<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.space<>
+
+Space Key
+@
+@ Key.space, space
+@ spacebar, space bar
+
+
+
+### Key - tab
+
+<cb>= Key.tab<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.tab<>
+
+Tab Key
+@
+@ Key.tab, tab
+
+
+
+### Key - up
+
+<cb>= Key.up<>
+
+Usage:
+
+<cb>from pynput.keyboard import Key
+
+= Key.up<>
+
+Up Arrow Key
+@
+@ Key.up, up
+@ arrow, direction, cursor, move
+
+
+
