@@ -109,13 +109,16 @@ Usage:
 
 Sends a string of characters as keystrokes.
 
+Works for strings only.
+Can't send <c>Key.<v>code<><> with this. Use <c>.tap()<> instead.
+
 
 Example:
 
 <cb>from pynput.keyboard import Controller
 <v>keyboard<> = Controller()
 
-<v>keyboard<>.tap('abc')
+<v>keyboard<>.type('abc')
 
 <#># Types 'abc'.<><>
 @
