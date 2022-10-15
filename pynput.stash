@@ -1,21 +1,47 @@
 # <#>pynput<> SpeedSheet
-<b>Find what you need, faster.<>
+<b>Find it faster.<>
 
-A library to control and monitor keyboard and mouse actions.
+This is an interactive <b>pynput<> cheat sheet. pynput is a Python library that controls and monitors keyboard and mouse actions. Use the search to instantly get answers.
 
 
-# Online Links
+<table><col><b>Basics<>
+
+<*><l "?q=install-only">Install<>
+<l "?q=keyboard-commands">Keyboard Commands<><>
+
+
+
+<b>Reference<>
+
+<*><l "?q=online-docs-only">Online Docs<>
+<l "?q=keys-only#keys_-_basics">Key Reference<><><><col>	<><col><b>Keys<>
+
+<*><l "?q=direction+keys">Directional<>
+<l "?q=directional+keys+arrow">Directional Arrows<>
+<l "?q=function+keys">Function Keys<>
+<l "?q=media+keys">Media<><>
+
+<*><l "?q=modifiers">Modifiers<>
+<l "?q=modifier+keys+alt">Modifier - Alt<>
+<l "?q=modifier+keys+command">Modifier - Command<>
+<l "?q=modifier+keys+control">Modifier - Control<>
+<l "?q=modifier+keys+shift">Modifier - Shift<><><><>
+
+
+# Online Documents
+@
+@ online-docs-only, docs-only
 
 
 ### pynput Documents
 <l>https://pynput.readthedocs.io/en/latest/<>
 
 
-### Github
+### pynput Github
 <l>https://github.com/moses-palmer/pynput<>
 
 
-### pynput Library on PyPi
+### pynput on PyPi
 <l>https://pypi.org/project/pynput/<>
 
 
@@ -23,15 +49,15 @@ A library to control and monitor keyboard and mouse actions.
 # Library
 
 
-## Install Library - pip
+### Install Library - pip
 
 <cb>pip install pynput<>
 @
-@ command, commandline
+@ command, commandline, install-only
 
 
 
-## Install Library - pip requirements.txt
+### Install Library - pip requirements.txt
 
 requirements.txt:
 
@@ -41,18 +67,19 @@ Command:
 
 <cb>pip install -r requiremets.txt<>
 @
-@ command, commandline
+@ command, commandline, install-only
 
 
 
-## Program - Import
+### Program - Import
 
 <cb>from pynput import mouse, keyboard<>
 
 
 
-
-# Keyboard
+# Keyboard - Commands
+@
+@ keyboard-only, keyboard-commands-only
 
 
 ### Keyboard - Send Key Character
@@ -144,6 +171,7 @@ Sends a key press event (key down).
 Does not send the key up event.
 @
 @ key down
+@ controller.press(), keyboard.press(), .press()
 
 
 
@@ -162,6 +190,7 @@ Usage:
 Sends a key release event (key up).
 @
 @ key up
+@ controller.release(), keyboard.release(), .release()
 
 
 
@@ -212,11 +241,13 @@ with <v>keyboard<>.pressed(Key.alt):
 @
 @ alt, altgr, ctrl, cmd, shift, 
 @ modifier, modified, control, command, nested
+@ controller.pressed(), keyboard.pressed(), .pressed()
+
 
 
 # Key Reference
 @
-@ keys
+@ key-only, keys-only, keys-reference, key-codes-only
 
 
 ## Keys - Basics
@@ -297,7 +328,7 @@ Usage:
 Generic Alt Key (Modifier)
 @
 @ Key.alt, alt
-@ modifier, modify
+@ modifiers, modify
 
 
 
@@ -314,7 +345,7 @@ Usage:
 AltGr / Alt Graph Key (Modifier)
 @
 @ Key.alt_gr, alt_gr
-@ general modifier, alt graph, modify
+@ general modifier, modifiers, modify, alt graph, modify
 
 
 
@@ -331,7 +362,7 @@ Usage:
 Left Alt Key (Modifier)
 @
 @ Key.alt_l, alt_l
-@ left modifier, modify
+@ left modifiers, modify
 
 
 
@@ -348,7 +379,7 @@ Usage:
 Right Alt Key (Modifier)
 @
 @ Key.alt_r, alt_r,
-@ Rigth modifier, modify
+@ Rigth modifiers, modify
 
 
 
@@ -365,7 +396,7 @@ Usage:
 Backspace Key
 @
 @ Key.backspace, backspace
-@ delete
+@ delete, edit
 
 
 
@@ -423,7 +454,7 @@ Mac - Left Command Key (Modifier)
 Windows - Left Super / Windows Key
 @
 @ Key.cmd_l, cmd_l
-@ Command, left, Modifier, modify
+@ Command, left, modifiers, modify
 
 
 
@@ -443,7 +474,7 @@ Mac - Right Command Key (Modifier)
 Windows - Right Super / Windows Key
 @
 @ Key.cmd_r, cmd_r
-@ Command, right, Modifier, modify
+@ Command, right, modifiers, modify
 
 
 
@@ -460,7 +491,7 @@ Usage:
 Generic Ctrl Key (Modifier)
 @
 @ Key.ctrl, ctrl
-@ control, modifier, modify
+@ control, modifiers, modify
 
 
 
@@ -477,7 +508,7 @@ Usage:
 Left Ctrl Key (Modifier)
 @
 @ Key.ctrl_l, ctrl_l
-@ left control, modifier, modify
+@ left control, modifiers, modify
 
 
 
@@ -494,7 +525,7 @@ Usage:
 Right Ctrl Key (Modifier)
 @
 @ Key.ctrl_r, ctrl_r
-@ right control, modifier, modify
+@ right control, modifiers, modify
 
 
 
@@ -510,7 +541,7 @@ Usage:
 
 Delete Key
 @
-@ Key.delete, delete
+@ Key.delete, delete, edit
 
 
 
@@ -527,7 +558,7 @@ Usage:
 Down Arrow Key
 @
 @ Key.down, down
-@ arrow, direction, cursor, move
+@ arrow, directional, cursor, move
 
 
 
@@ -544,7 +575,7 @@ Usage:
 End Key
 @
 @ Key.end, end
-@ move, direction, cursor
+@ move, directional, cursor
 
 
 
@@ -577,7 +608,7 @@ Usage:
 Escape Key
 @
 @ Key.esc, esc
-@ escape
+@ escape, edit
 
 
 
@@ -585,7 +616,7 @@ Escape Key
 
 <cb>= Key.f1
 <v>...<>
-Key.f20<>
+= Key.f20<>
 
 Usage:
 
@@ -654,7 +685,7 @@ Usage:
 Left Arrow Key
 @
 @ Key.left, left
-@ arrow, direction, cursor, move
+@ arrow, directional, cursor, move
 
 
 
@@ -812,7 +843,7 @@ Usage:
 PageDown Key
 @
 @ Key.page_down, page_down
-@ page down, direction, cursor, move
+@ page down, directional, cursor, move
 
 
 
@@ -829,7 +860,7 @@ Usage:
 PageUp Key
 @
 @ Key.page_up, page_up
-@ page up, direction, cursor, move
+@ page up, directional, cursor, move
 
 
 
@@ -883,7 +914,7 @@ Usage:
 Right Arrow Key
 @
 @ Key.right, right
-@ arrow, direction, cursor, move
+@ arrow, directional, cursor, move
 
 
 
@@ -919,7 +950,7 @@ Usage:
 Generic Shift Key (Modifier)
 @
 @ Key.shift, shift
-@ modifier, modify, case
+@ modifiers, modify, case
 
 
 
@@ -936,7 +967,7 @@ Usage:
 Left Shift Key (Modifier)
 @
 @ Key.shift_l, shift_l
-@ left, modifier, modify, shift, case
+@ left, modifiers, modify, shift, case
 
 
 
@@ -953,7 +984,7 @@ Usage:
 Right Shift Key (Modifier)
 @
 @ Key.shift_r, shift_r
-@ right, modifier, modify, shift, case
+@ right, modifiers, modify, shift, case
 
 
 
@@ -1003,7 +1034,7 @@ Usage:
 Up Arrow Key
 @
 @ Key.up, up
-@ arrow, direction, cursor, move
+@ arrow, directional, cursor, move
 
 
 
